@@ -9,7 +9,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { FirebaseUIModule, firebase, firebaseui } from 'firebaseui-angular';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent, LoginDialog } from './app.component';
+import { AppComponent, LoginDialogComponent } from './app.component';
 import { environment } from '../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -25,7 +25,7 @@ const firebaseUIAuthConfig: firebaseui.auth.Config = {
 @NgModule({
   declarations: [
     AppComponent,
-    LoginDialog,
+    LoginDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,6 +40,6 @@ const firebaseUIAuthConfig: firebaseui.auth.Config = {
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [LoginDialog],
+  entryComponents: [LoginDialogComponent],
 })
 export class AppModule { }
