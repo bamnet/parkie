@@ -1,19 +1,27 @@
 language: node_js
+
 node_js:
-  - "10"
+- '10'
 
 dist: trusty
+
 sudo: false
 
 cache:
   directories:
-    - node_modules
+  - node_modules
 
 addons:
   chrome: stable
 
 script:
-  - npm run lint
-  - npm run build
-  - xvfb-run npm run test:ci
-  - xvfb-run npm run e2e
+- npm run lint
+- npm run build
+- xvfb-run npm run test:ci
+- xvfb-run npm run e2e
+
+deploy:
+  provider: firebase
+  token:
+    secure: "Z+GND4O/euqX9zfBQEdoRec5t8sXNRGbAZb9T56F1/hhbPR7yuPCsZFx4dG/lD/SwQSAzpMXfOa1vee+7SRIQwfAfTDoV06xwMisJ+73p3HFF/WhUzszucI8/OL74eBbxuWWLzxzZODiNa7a3w5Humw/JdWcu4GbKpM9TbN8SvnUhJxbwXWMDi8sAKmOV8C9XYVdO/IokfSSMMKkT4WbdOd3EXYrxDxVxT+jxW8HwpsP/IzCtU+fS0x8DsEDyhyeVRqok3aG4t7RLlbOpsHIN81vjTZM8Bw4RnoXjtkT4HCoD+Jp8MfpElJcKZ5XIBDEopF+t236bKuS4MMCF7jQSuaz5mS3Xd0hCFFCAgHTDwgCR0+zn6E+smPm1zvP7KrJTBYq3rGX6ILAhA0ndbt5N3/ht9l4TZ9kxpijpsatAtztlHMhKrBwhD0iQTLkpeAh40dIXjjACSQr+KBVFUOGZggPBM6M57UxNQnYnUEkujfXTQJQl9BdAkYf7uD1NV9M0WQ8T6prpszCALG7hkEnVcjUltvWmczd/CIV2G0Ydj9QKvfPVLpHnhJy5oKCanGAFXCJAicYv2rHB36wQ2AYcOAJBlb0icbSe5L8yX4fkHgMeBvsic0opzYvuyf1+xfZS6b9sTmLFrNZg0lupB/xXAfLK9iPwYtJQSK4kI+d3Xo="
+  project: "parkie-1551564963641"
