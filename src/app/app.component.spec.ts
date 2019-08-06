@@ -17,6 +17,7 @@ describe('AppComponent', () => {
         MatButtonModule,
         MatDialogModule,
         AngularFireModule.initializeApp(environment.firebase),
+        AngularFireAuthModule,
       ],
       declarations: [
         AppComponent
