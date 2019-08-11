@@ -1,0 +1,4 @@
+<ng-container *ngIf="(park$ | async) as park">
+    <h1>{{park.FullName}}</h1>
+    <p>{{park.Description}}</p>
+</ng-container>

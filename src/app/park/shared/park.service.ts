@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
+import { Observable, forkJoin } from 'rxjs';
+import { first, map } from 'rxjs/operators';
 
 import * as firebase from 'firebase/app';
 import 'firebase/firestore';
@@ -24,5 +25,12 @@ export class ParkService {
 
   list(): Observable<Park[]> {
     return this.db.collection<Park>('parks').valueChanges();
+  }
+
+  get(code: string): Observable<Park> {
+    return this.db.collection<Park>('parks',
+      ref => ref.where('Code', '==', code)
+        .limit(1)).valueChanges()
+      .pipe(map(parks => parks[0]));
   }
 }

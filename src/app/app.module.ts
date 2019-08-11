@@ -14,6 +14,7 @@ import { AppComponent, LoginDialogComponent } from './app.component';
 import { environment } from '../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ListComponent } from './park/list/list.component';
+import { ShowComponent } from './park/show/show.component';
 
 const firebaseUIAuthConfig: firebaseui.auth.Config = {
   signInFlow: 'popup',
@@ -29,6 +30,7 @@ const firebaseUIAuthConfig: firebaseui.auth.Config = {
     AppComponent,
     LoginDialogComponent,
     ListComponent,
+    ShowComponent,
   ],
   imports: [
     BrowserModule,

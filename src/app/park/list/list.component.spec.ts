@@ -9,6 +9,7 @@ import { from } from 'rxjs';
 
 import { ListComponent } from './list.component';
 import { ParkService, Park } from '../shared/park.service';
+import { RouterTestingModule } from '@angular/router/testing';
 
 const parks: Park[][] = [[
   { FullName: 'Test Park', Location: new firebase.firestore.GeoPoint(1, 2) },
@@ -27,6 +28,7 @@ describe('ListComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         AngularFireModule.initializeApp(environment.firebase),
+        RouterTestingModule,
       ],
       providers: [
         { provide: ParkService, useValue: parkServiceStub }

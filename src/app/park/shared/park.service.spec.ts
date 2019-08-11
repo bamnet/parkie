@@ -44,4 +44,12 @@ describe('ParkService', () => {
       fail
     );
   });
+
+  it('should get a single park', () => {
+    const service: ParkService = TestBed.get(ParkService);
+    service.get('unused').subscribe(
+      gotParks => expect(gotParks).toEqual(parks[0][0]),
+      fail
+    );
+  });
 });

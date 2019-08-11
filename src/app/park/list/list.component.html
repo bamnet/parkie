@@ -1,5 +1,5 @@
 <ul>
     <li class="text" *ngFor="let park of parks | async">
-        <a href="https://www.google.com/maps/search/?api=1&query={{park.Location.latitude}},{{park.Location.longitude}}">{{park.FullName}}</a>
+        <a [routerLink]="['/parks', park.Code]">{{park.FullName}}</a>
       </li> 
 </ul>
