@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable, forkJoin } from 'rxjs';
-import { first, map } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 import * as firebase from 'firebase/app';
 import 'firebase/firestore';
