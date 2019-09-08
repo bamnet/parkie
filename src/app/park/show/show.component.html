@@ -1,4 +1,14 @@
 <ng-container *ngIf="(park$ | async) as park">
     <h1>{{park.FullName}}</h1>
     <p>{{park.Description}}</p>
+    <ng-container *ngIf="(visited$ | async); else newVisit">
+        <button mat-raised-button color="primary" disabled>
+            Visited
+        </button>
+    </ng-container>
+    <ng-template #newVisit>
+        <button mat-raised-button color="primary" (click)="addVisit(park.Code)">
+            Mark Visited
+        </button>
+    </ng-template>
 </ng-container>
