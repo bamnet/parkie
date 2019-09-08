@@ -4,6 +4,7 @@ import { ShowComponent } from './show.component';
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
 import { ParkService, Park } from '../shared/park.service';
+import { VisitService, Visit } from '../../visit/shared/visit.service';
 import { ActivatedRouteStub } from 'src/testing/activated-route-stub';
 
 
@@ -13,9 +14,14 @@ describe('ShowComponent', () => {
 
   const activatedRoute = new ActivatedRouteStub();
 
-  const park: Park = { FullName: 'Test Park 1', Description: 'test location' };
+  const park: Park = { FullName: 'Test Park 1', Description: 'test location', Code: 'test1' };
   const parkServiceStub = {
     get: jasmine.createSpy('get').and.returnValue(of(park))
+  };
+
+  const visits: Visit[] = [ { ParkCode: 'test1', UserID: 'user1' }];
+  const visitServiceStub = {
+    list: jasmine.createSpy('list').and.returnValue(of(visits))
   };
 
   beforeEach(async(() => {
@@ -29,6 +35,9 @@ describe('ShowComponent', () => {
         }, {
           provide: ParkService,
           useValue: parkServiceStub
+        }, {
+          provide: VisitService,
+          useValue: visitServiceStub
         },
       ]
     })
@@ -48,5 +57,6 @@ describe('ShowComponent', () => {
   it('should show a park', () => {
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('h1').textContent).toContain('Test Park 1');
+    expect(compiled.querySelector('button').textContent).toContain('Visited');
   });
 });

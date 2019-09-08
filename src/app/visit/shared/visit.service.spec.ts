@@ -22,7 +22,11 @@ const user = {
 describe('VisitService', () => {
   const angularFirestoreStub = {
     collection: jasmine.createSpy('collection').and.returnValue({
-      valueChanges: jasmine.createSpy('valueChanges').and.returnValue(from(visits))
+      doc: jasmine.createSpy('doc').and.returnValue({
+        collection: jasmine.createSpy('collection').and.returnValue({
+          valueChanges: jasmine.createSpy('valueChanges').and.returnValue(from(visits))
+        })
+      })
     })
   };
 
@@ -41,5 +45,13 @@ describe('VisitService', () => {
   it('should be created', () => {
     const service: VisitService = TestBed.get(VisitService);
     expect(service).toBeTruthy();
+  });
+
+  it('should list visits', () => {
+    const service: VisitService = TestBed.get(VisitService);
+    service.list().subscribe(
+      gotVisits => expect(gotVisits).toEqual(visits[0]),
+      fail
+    );
   });
 });

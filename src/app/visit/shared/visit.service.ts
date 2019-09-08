@@ -23,7 +23,6 @@ export class VisitService {
     private db: AngularFirestore,
     public auth: AngularFireAuth,
   ) {
-    console.log(Object.keys(this.auth.user));
     this.auth.user.subscribe(user => this.userId = (user ? user.uid : ''));
   }
 
