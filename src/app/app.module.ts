@@ -6,6 +6,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
 
 import { FirebaseUIModule, firebase, firebaseui } from 'firebaseui-angular';
 
@@ -39,6 +40,7 @@ const firebaseUIAuthConfig: firebaseui.auth.Config = {
     MatToolbarModule,
     MatButtonModule,
     MatDialogModule,
+    MatIconModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     FirebaseUIModule.forRoot(firebaseUIAuthConfig),

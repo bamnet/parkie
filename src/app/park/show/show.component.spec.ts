@@ -1,11 +1,13 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ActivatedRoute } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
+import { of } from 'rxjs';
 
 import { ShowComponent } from './show.component';
-import { ActivatedRoute } from '@angular/router';
-import { of } from 'rxjs';
 import { ParkService, Park } from '../shared/park.service';
 import { VisitService, Visit } from '../../visit/shared/visit.service';
 import { ActivatedRouteStub } from 'src/testing/activated-route-stub';
+
 
 
 describe('ShowComponent', () => {
@@ -19,7 +21,7 @@ describe('ShowComponent', () => {
     get: jasmine.createSpy('get').and.returnValue(of(park))
   };
 
-  const visits: Visit[] = [ { ParkCode: 'test1', UserID: 'user1' }];
+  const visits: Visit[] = [{ ParkCode: 'test1', UserID: 'user1' }];
   const visitServiceStub = {
     list: jasmine.createSpy('list').and.returnValue(of(visits))
   };
@@ -27,6 +29,7 @@ describe('ShowComponent', () => {
   beforeEach(async(() => {
     activatedRoute.setParamMap({ code: 'test' });
     TestBed.configureTestingModule({
+      imports: [MatIconModule],
       declarations: [ShowComponent],
       providers: [
         {

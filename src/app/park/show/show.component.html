@@ -3,11 +3,13 @@
     <p>{{park.Description}}</p>
     <ng-container *ngIf="(visited$ | async); else newVisit">
         <button mat-raised-button color="primary" disabled>
+            <mat-icon aria-hidden="false" aria-label="checkmark">check</mat-icon>
             Visited
         </button>
     </ng-container>
     <ng-template #newVisit>
         <button mat-raised-button color="primary" (click)="addVisit(park.Code)">
+            <mat-icon aria-hidden="false" aria-label="checkmark">check</mat-icon>
             Mark Visited
         </button>
     </ng-template>
