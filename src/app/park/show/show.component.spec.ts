@@ -7,6 +7,7 @@ import { ShowComponent } from './show.component';
 import { ParkService, Park } from '../shared/park.service';
 import { VisitService, Visit } from '../../visit/shared/visit.service';
 import { ActivatedRouteStub } from 'src/testing/activated-route-stub';
+import { ListComponent } from 'src/app/visit/list/list.component';
 
 
 
@@ -30,7 +31,10 @@ describe('ShowComponent', () => {
     activatedRoute.setParamMap({ code: 'test' });
     TestBed.configureTestingModule({
       imports: [MatIconModule],
-      declarations: [ShowComponent],
+      declarations: [
+        ShowComponent,
+        ListComponent,
+      ],
       providers: [
         {
           provide: ActivatedRoute,

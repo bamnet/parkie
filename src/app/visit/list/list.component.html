@@ -1,0 +1,5 @@
+<ul>
+    <li class="text" *ngFor="let visit of visits | async">
+        {{visit.Date || 'Unknown Date'}}
+    </li>
+</ul>
